@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <button onclick="startCamera()">Start Camera</button>
+  <video id="video" autoplay playsinline></video>
+
+  <script>
+    function startCamera() {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          document.getElementById("video").srcObject = stream;
+        })
+        .catch(err => alert("Camera access denied"));
+    }
+  </script>
+</body>
+</html>
